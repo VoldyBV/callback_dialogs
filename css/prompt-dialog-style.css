@@ -1,0 +1,16 @@
+/* Prompt Dialog Style */
+.prompt-dialog{
+    --dlg-content-font-size: 20px;
+    --dlg-hf-font-size: 35px;
+}
+.prompt-dialog .bv-dialog-default-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.prompt-dialog .bv-dialog-default-content [name=dialog-value] {
+    width: 99%;
+    height: calc(var(--dlg-content-font-size, 12px) + 10px);
+    font-size: var(--dlg-content-font-size, 12px);
+    border: solid rgb(0, 0, 0) 1px;
+}

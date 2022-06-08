@@ -1,0 +1,20 @@
+.singleOption-dialog{
+    --dlg-content-font-size: 20px;
+    --dlg-hf-font-size: 35px;
+}
+.singleOption-dialog label {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+}
+.singleOption-dialog .bv-dialog-default-content span {
+    display: inline-block;
+    font-size: var(--dlg-content-font-size);
+    vertical-align: middle;
+}
+.singleOption-dialog .bv-dialog-default-content [name=dialog-value] {
+    cursor: pointer;
+    height: calc(var(--dlg-content-font-size, 12px));
+    width: calc(var(--dlg-content-font-size, 12px));
+    vertical-align: middle;
+}

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dialogs</title>
+    <script src="dialog.js"></script>
+    <link rel="stylesheet" href="css/dialog-style.css">
+</head>
+<body>
+    <style>
+        .custom {
+            --dlg-hf-font-size: 5vh;
+        }
+        .btn-abort {
+            color: white;
+            background-color: red;
+            border-color: red;
+        }
+        .btn-clear{
+            background-color: yellow;
+            border-color: yellow;
+            color: white;
+        }
+        .btn-procede{
+            background-color: green;
+            border-color: green;
+            color: white;
+        }
+    </style>
+    <script>
+        function Alert(){
+            var settings = {
+                title: "Alert dialog",
+                message: "This is simple alert dialog"
+            };
+
+            BV_dialog.alert(settings);
+        }
+        function PromptString(){
+            var settings = {
+                title: "Enter your full name",
+                type: "text",
+                placeholder: "Full name",
+                on_OK: (dialog_info) => { document.querySelector("#span1").innerHTML = dialog_info; },
+                on_Cancel: () => { document.querySelector("#span1").innerHTML = ""; }
+            };
+
+            BV_dialog.prompt(settings)
+        }
+        function PromptNumber(){
+            var settings = {
+                title: "Enter a number",
+                type: "number",
+                min: "0",
+                max: "100",
+                step: "5",
+                value: "50",
+                on_OK: (dialog_info) => { document.querySelector("#span2").innerHTML = dialog_info; },
+                on_Cancel: () => { document.querySelector("#span2").innerHTML = ""; }
+            };
+
+            BV_dialog.prompt(settings)
+        }
+        function PromptColor(){
+            var settings = {
+                title: "Choose color",
+                type: "color",
+                value: "#fad4a1",
+                on_OK: (dialog_info) => { document.querySelector("#span3").innerHTML = dialog_info; },
+                on_Cancel: () => { document.querySelector("#span3").innerHTML = ""; }
+            };
+
+            BV_dialog.prompt(settings)
+        }
+        function PromptDateTime(){
+            var settings = {
+                title: "Choose date and time",
+                type: "datetime-local",
+                on_OK: (dialog_info) => { document.querySelector("#span4").innerHTML = dialog_info; },
+                on_Cancel:() => { document.querySelector("#span4").innerHTML = ""; }
+            };
+
+            BV_dialog.prompt(settings)
+        }
+        function PromptDate(){
+            var settings = {
+                title: "Choose date",
+                type: "date",
+                on_OK: (dialog_info) => { document.querySelector("#span5").innerHTML = dialog_info; },
+                on_Cancel: () => { document.querySelector("#span5").innerHTML = ""; }
+            };
+
+            BV_dialog.prompt(settings)
+        }
+        function PromptTime(){
+            var settings = {
+                title: "Choose time",
+                type: "time",
+                on_OK: (dialog_info) => { document.querySelector("#span6").innerHTML = dialog_info; },
+                on_Cancel: () => { document.querySelector("#span6").innerHTML = ""; }
+            };
+
+            BV_dialog.prompt(settings)
+        }
+        function PromptEmail(){
+            var settings = {
+                title: "Enter your email",
+                type: "email",
+                placeholder: "example@gmail.com",
+                on_OK: (dialog_info) => { document.querySelector("#span7").innerHTML = dialog_info; },
+                on_Cancel: () => { document.querySelector("#span7").innerHTML = ""; }
+            };
+
+            BV_dialog.prompt(settings)
+        }
+        function SingleOption(){
+            var settings = {
+                title: "Choose hobby",
+                options: ["drawing", "hiking", "ridding a bike"],
+                on_OK: (dialog_info) => { document.querySelector("#span8").innerHTML = dialog_info; },
+                on_Cancel: () => { document.querySelector("#span8").innerHTML = ""; },
+            };
+
+            BV_dialog.singleOption(settings);
+        }
+        function MultiOption(){
+            var settings = {
+                title: "Choose hobby",
+                options: ["drawing", "hiking", "ridding a bike"],
+                on_OK: (dialog_info) => { document.querySelector("#span9").innerHTML = dialog_info; },
+                on_Cancel: () => { document.querySelector("#span9").innerHTML = ""; },
+            };
+
+            BV_dialog.multiOption(settings)
+        }
+        function Confirm(){
+            var settings = {
+                title: "Multiply 30 by 5",
+                on_OK_params: 30,
+                message: "Do you really want to multiply 30 by 5?",
+                on_OK: (dialog_info) => { document.querySelector("#span10").innerHTML = dialog_info*5; },
+                on_Cancel: () => { document.querySelector("#span10").innerHTML = ""; },
+            };
+
+            BV_dialog.confirm(settings)
+        }
+        function Custom(){
+            var settings = {
+                title: "Unesite podatke",
+                tempID: "custom-dlg"
+            }
+            BV_dialog.customDialog(settings);
+        }
+    </script>
+    <script>
+        function Clear(){
+            var elems = document.querySelectorAll("[name=dlg-field]");
+            elems.forEach((elem) => {elem.value = "";});
+        }
+        function Procede(){
+            var settings = {
+                title: "Results",
+                message: "Look at the conole log for result."
+            }
+            BV_dialog.alert(settings);
+            var elems = document.querySelectorAll("[name=dlg-field]");
+            elems.forEach((elem) => {console.log(elem.value);});
+        }
+    </script>
+    <button onclick="Alert()">Alert dialog</button>
+    <br>
+    <br>
+    <button onclick="PromptString()">Prompt dialog, type text</button> <span id="span1"></span>
+    <br>
+    <br>
+    <button onclick="PromptNumber()">Prompt dialog, type number</button> <span id="span2"></span>
+    <br>
+    <br>
+    <button onclick="PromptColor()">Prompt dialog, type color</button> <span id="span3"></span>
+    <br>
+    <br>
+    <button onclick="PromptDateTime()">Prompt dialog, type datetime-local</button> <span id="span4"></span>
+    <br>
+    <br>
+    <button onclick="PromptDate()">Prompt dialog, type date</button> <span id="span5"></span>
+    <br>
+    <br>
+    <button onclick="PromptTime()">Prompt dialog, type time</button> <span id="span6"></span>
+    <br>
+    <br>
+    <button onclick="SingleOption()">SingleOption dialog</button> <span id="span8"></span>
+    <br>
+    <br>
+    <button onclick="MultiOption()">MultiOption dialog</button> <span id="span9"></span>
+    <br>
+    <br>
+    <button onclick="Confirm()">Confirm dialog</button> <span id="span10"></span>
+    <br>
+    <br>
+    <button onclick="Custom()">Custom dialog</button>
+    <br>
+    <br>
+    <template id="custom-dlg">
+        <div dialog-content>
+            <input type="datetime-local" name="dlg-field" id=""><br>
+            <input type="date" name="dlg-field" id=""> <br>
+            <input type="time" name="dlg-field" id=""> <br>
+        </div>
+        <div dialog-buttons>
+            <button class="btn-abort">Abort</button>
+            <button class="btn-clear" onclick="Clear()" close-dialog="false">Clear</button>
+            <button class="btn-procede" onclick="Procede()">Procede</button>
+        </div>
+    </template>
+</body>
+</html>

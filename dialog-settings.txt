@@ -1,0 +1,28 @@
+GLOBAL SETTINGS
+title
+classList
+btn_OK_Text
+btn_Cancel_Text
+on_OK
+on_Cancel
+
+PROMPT SETTINGS:
+type
+min
+max
+step
+value
+placeholder
+
+SINGLE OPTION & MULTIOPTION SETTINGS:
+options
+
+ALERT SETTINGS:
+message
+
+CONFIRM SETTINGS:
+message
+on_OK_params
+
+CUSTOM DIALOG SETTINGS:
+tempID

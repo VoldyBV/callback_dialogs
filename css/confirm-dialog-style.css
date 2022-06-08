@@ -1,0 +1,8 @@
+.confirm-dialog{
+    --dlg-content-font-size: 25px;
+    --dlg-hf-font-size: 35px;
+}
+.confirm-dialog  .bv-dialog-default-content span{
+	display: inline-block;
+	font-size: var(--dlg-content-font-size, 12px);
+}

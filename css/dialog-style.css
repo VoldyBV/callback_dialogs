@@ -1,0 +1,128 @@
+/* Importing default dialogs' files */
+@import "prompt-dialog-style.css";
+@import "singleOption-dialog-style.css";
+@import "confirm-dialog-style.css";
+@import "alert-dialog-style.css";
+
+/* Dialog's Overlay */
+.bv-dialog-default-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(2px);
+}
+/* Dialog's body (contains header, footer and content) */
+.bv-dialog-default-body{
+    height: auto;
+    min-height: 40vh;
+
+    width: auto;
+    min-width: 50vw;
+
+    box-sizing: border-box;
+    border-radius: 20px;
+
+    border-width: var(--dlg-border-width, 3px);
+    border-color: var(--dlg-border-color, black);
+    border-style: var(--dlg-border-style, solid);
+
+    background-color: white;
+    overflow: hidden;
+}
+/* Dialog's header and footer*/
+.bv-dialog-default-hf{
+
+    min-height: 12vh;
+    min-width: 100%;
+    
+    font-weight: bold;
+
+    background-color: var(--dlg-hf-bgC, rgb(192, 192, 192));
+    color: var(--dlg-hf-color, black);
+    font-family: var(--dlg-font-family, Calibri);
+    font-size: var(--dlg-hf-font-size, 12px);
+}
+/* Dialog's header */
+.bv-dialog-default-H{
+    display: flex;
+    align-items: center;
+}
+/* Dialog's footer*/
+.bv-dialog-default-F{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/* Dialog's content*/
+.bv-dialog-default-content{
+    height: auto;
+    min-height: 150px;
+    min-width: 100%;
+
+    max-height: 65vh;
+
+    box-sizing: border-box;
+
+    font-family: var(--dlg-font-family, Calibri);
+    border-width: var(--dlg-border-width, 3px);
+    border-color: var(--dlg-border-color, black);
+    border-style: var(--dlg-border-style, solid);
+    background-color: var(--dlg-content-bgC, white);
+    color: var(--dlg-content-color, black);
+    font-size: var(--dlg-content-font-size, 12px);
+
+    border-left: none;
+    border-right: none;
+
+    overflow: auto;
+    padding: 10px;
+    word-wrap: break-word;
+}
+/* Dialog's message*/
+.bv-dialog-msg{
+    display: inline-block;
+    margin: 10px;
+}
+/* Dialog's buttons */
+.bv-dialog-default-btn{
+    font-weight: bold;
+    width: auto;
+    margin: 10px;
+    cursor: pointer;
+
+    height: var(--dlg-btn-height, 7vh);
+    min-width: var(--dlg-btn-min-width, 7vw);
+    font-family: var(--dlg-font-family, Calibri);
+    font-size: var(--dlg-btn-font-size, 3vh);
+}
+/* Dialog's OK button */
+.bv-dialog-default-btn[btn=OK]{
+    background-color: var(--dlg-btn-OK-bgC, #0066CC);
+    border-style: var(--dlg-btn-OK-brdS, solid);
+    border-width: var(--dlg-btn-OK-brdW, 2px);
+    border-color: var(--dlg-btn-OK-brdC, #0066CC);
+    color: var(--dlg-btn-OK-color, white);
+}
+.bv-dialog-default-btn[btn=OK]:hover{
+    background-color: var(--dlg-btn-OK-Hover-bgC, #2778c9);
+}
+/* Dialog's Cancel button */
+.bv-dialog-default-btn[btn=Cancel]{
+    background-color: var(--dlg-btn-Cancel-bgC, rgb(224, 224, 224));
+    border-style: var(--dlg-btn-Cancel-brdS, solid);
+    border-width: var(--dlg-btn-Cancel-brdW, 2px);
+    border-color: var(--dlg-btn-Cancel-brdC, silver);
+    color: var(--dlg-btn-Cancel-color, black);
+}
+.bv-dialog-default-btn[btn=Cancel]:hover{
+    background-color: var(--dlg-btn-Cancel-Hover-bgC, rgb(250, 250, 250));
+}
