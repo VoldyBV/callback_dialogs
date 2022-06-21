@@ -19,6 +19,7 @@ options
 
 ALERT SETTINGS:
 message
+on_OK_params
 
 CONFIRM SETTINGS:
 message

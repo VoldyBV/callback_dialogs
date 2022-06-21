@@ -245,6 +245,9 @@ class BV_dialog{
         	var content = `<span>${settings.message}</span>`;
             //creating functions for OK and Cancel buttons
             var OK = function () {
+                if(typeof this.on_OK == "function") {
+                    this.on_OK(this.on_OK_params);
+                }
                 document.body.removeChild(this.dlg);
             }
             var Cancel = function () {
@@ -301,3 +304,7 @@ class BV_dialog{
         }
     }
 }
+window.addEventListener("DOMContentLoaded", () => {
+    var link = `<link rel="stylesheet" href="css/dialog-style.css">`;
+    document.head.insertAdjacentHTML("afterbegin", link);
+})
