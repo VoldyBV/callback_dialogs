@@ -301,6 +301,6 @@ class BV_dialog{
     }
 }
 window.addEventListener("DOMContentLoaded", () => {
-    var link = `<link rel="stylesheet" href="css/dialog-style.css">`;
+    var link = `<link rel="stylesheet" href="https://combinatronics.com/VoldyBV/callback_dialogs/master/css/dialog-style.css">`;
     document.head.insertAdjacentHTML("afterbegin", link);
 })
