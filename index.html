@@ -115,8 +115,12 @@
         function SingleOption(){
             var settings = {
                 title: "Choose hobby",
-                options: ["drawing", "hiking", "ridding a bike"],
-                on_OK: (dialog_info) => { document.querySelector("#span8").innerHTML = dialog_info; },
+                options: [
+                    {realValue: "1", displayValue: "hikking"},
+                    {realValue: "2", displayValue: "swimming"},
+                    {realValue: "3", displayValue: "drawing"},
+                ],
+                on_OK: (dialog_info) => { document.querySelector("#span8").innerHTML = dialog_info.realValue; },
                 on_Cancel: () => { document.querySelector("#span8").innerHTML = ""; },
             };
 
@@ -125,8 +129,12 @@
         function MultiOption(){
             var settings = {
                 title: "Choose hobby",
-                options: ["drawing", "hiking", "ridding a bike"],
-                on_OK: (dialog_info) => { document.querySelector("#span9").innerHTML = dialog_info; },
+                options: [
+                    {realValue: "COPYRIGHT SIGN", displayValue: "&copy;"},
+                    {realValue: "REGISTERED SIGN", displayValue: "&reg;"},
+                    {realValue: "EURO SIGN", displayValue: "&euro;"},
+                ],
+                on_OK: (dialog_info) => { dialog_info.forEach((item) => {document.querySelector("#span9").innerHTML += item.realValue + ","}); },
                 on_Cancel: () => { document.querySelector("#span9").innerHTML = ""; },
             };
 

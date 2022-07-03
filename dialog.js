@@ -110,20 +110,18 @@ class BV_dialog{
 
             //creating dialog's content
             var content = document.createElement("div");
-            
-            for(var i = 0;i < settings.options.length; i++){
+
+            settings.options.forEach((item, index) => {
                 var label = document.createElement("label");//container for radio button and span
-                var span = document.createElement("span");//container for text
                 var rb = document.createElement("input");//radio button
-                
+
                 rb.type = "radio";
                 rb.name = "dialog-value";
-                rb.value = settings.options[i];
-                span.innerText = settings.options[i];
+                rb.value = item.realValue;
                 label.appendChild(rb);
-                label.appendChild(span);
+                label.innerHTML += item.displayValue;
                 content.appendChild(label);
-            }
+            });
 
             //creating functions for OK and Cancel buttons
             var OK = function () {
@@ -132,7 +130,7 @@ class BV_dialog{
 
                 for(var i = 0;i < opts.length; i++){
                     if(opts[i].checked){
-                        info = opts[i].value;
+                        info = this.options[i];
                         break;
                     }
                 }
@@ -166,19 +164,17 @@ class BV_dialog{
             //creating dialog's content
             var content = document.createElement("div");
             
-            for(var i = 0;i < settings.options.length; i++){
+            settings.options.forEach((item, index) => {
                 var label = document.createElement("label");//container for radio button and span
-                var span = document.createElement("span");//sontainer for text
                 var cb = document.createElement("input");//radio button
-                
+
                 cb.type = "checkbox";
                 cb.name = "dialog-value";
-                cb.value = settings.options[i];
-                span.innerText = settings.options[i];
+                cb.value = item.realValue;
                 label.appendChild(cb);
-                label.appendChild(span);
+                label.innerHTML += item.displayValue;
                 content.appendChild(label);
-            }
+            });
 
             //creating functions for OK and Cancel buttons
             var OK = function () {
@@ -187,7 +183,7 @@ class BV_dialog{
 
                 for(var i = 0, j = 0;i < opts.length; i++){
                     if(opts[i].checked){
-                        info[j++] = opts[i].value;
+                        info[j++] = this.options[i];
                     }
                 }
 
